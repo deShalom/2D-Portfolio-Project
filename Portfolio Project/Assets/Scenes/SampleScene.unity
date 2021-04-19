@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 598369406}
   - component: {fileID: 598369407}
   - component: {fileID: 598369408}
+  - component: {fileID: 598369409}
   m_Layer: 0
   m_Name: Tester Player
   m_TagString: Untagged
@@ -394,6 +395,18 @@ MonoBehaviour:
   a_States: 0
   rBody: {fileID: 598369405}
   sRend: {fileID: 598369402}
+--- !u!114 &598369409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598369401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307def1e656e93b4e8c3f8cbd0ff0c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &645997355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,10 +1340,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2098926091}
-  - component: {fileID: 2098926090}
   - component: {fileID: 2098926093}
   - component: {fileID: 2098926092}
   - component: {fileID: 2098926094}
+  - component: {fileID: 2098926090}
   m_Layer: 0
   m_Name: Pick-up Tester
   m_TagString: Untagged
@@ -1351,8 +1364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemType: 0
-  health: 0
-  money: 0
+  health: 15
+  money: 10
 --- !u!4 &2098926091
 Transform:
   m_ObjectHideFlags: 0
@@ -1380,7 +1393,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.005934596}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1391,7 +1404,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.3916883}
   m_EdgeRadius: 0
 --- !u!50 &2098926093
 Rigidbody2D:

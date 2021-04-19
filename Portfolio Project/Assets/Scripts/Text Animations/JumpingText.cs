@@ -42,7 +42,12 @@ namespace TextClasses
                     verts[charInfo.vertexIndex + j] = Vector3.Lerp(orig, new Vector3(orig.x, orig.y + 10f), 0.2f);
                     ForceMeshUpdate();
                 }
-                tester++;
+
+                if (tester >= textInfo.characterCount)
+                    tester = 0;
+                else
+                    tester++;
+
                 yield return new WaitForSeconds(1);
             }
         }

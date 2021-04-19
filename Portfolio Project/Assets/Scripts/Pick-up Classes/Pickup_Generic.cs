@@ -12,17 +12,15 @@ namespace PlayerClasses
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            print("There has been a collision.");
-
             if (collision.gameObject.name == "Tester Player")
             {
                 switch (ItemType)
                 {
                     case p_Type.t_Health:
-                        print("This pick-up is of type health.");
+                        PlayerMang.UpdateHealth(health);
                         break;
                     case p_Type.t_Money:
-                        print("This pick-up is of type money.");
+                        PlayerMang.UpdateMoney(money);
                         break;
                 }
                 Destroy(gameObject);
