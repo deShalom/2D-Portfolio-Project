@@ -1,21 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 namespace TextClasses
 {
-    public class WaveyText : TextBase_A
+    public class A_WaveyText : TextBase_A
     {
-        [SerializeField] TextMeshProUGUI text;
-
-        #region Override Properties.
-        public override TMP_TextInfo textInfo { get; set; }
-        public override TMP_CharacterInfo charInfo { get; set; }
-        public override Vector3[] verts { get; set; }
-        public override Vector3 orig { get; set; }
-        #endregion
-
         private void Start()
         {
             AssignValues();
@@ -25,8 +15,6 @@ namespace TextClasses
         {
             StartCoroutine("Animate");
         }
-
-        public override void AssignValues() => textInfo = text.textInfo;
 
         public override IEnumerator Animate()
         {
@@ -48,16 +36,5 @@ namespace TextClasses
                 yield return null;
             }
         }
-
-        public override void ForceMeshUpdate()
-        {
-            for (int u = 0; u < textInfo.meshInfo.Length; u++)
-            {
-                var meshInfo = textInfo.meshInfo[u];
-                meshInfo.mesh.vertices = meshInfo.vertices;
-                text.UpdateGeometry(meshInfo.mesh, u);
-            }
-        }
-
     }
 }

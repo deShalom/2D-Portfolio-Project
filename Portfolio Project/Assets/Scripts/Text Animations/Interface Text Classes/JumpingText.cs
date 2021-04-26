@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace TextClasses
 {
-    public class JumpingText : TextBase_A
+    public class JumpingText : MonoBehaviour, ITextBase
     {
         [SerializeField] TextMeshProUGUI text;
-        private int tester = 0;
+        private int Counter = 0;
 
-        #region Override Properties.
-        public override TMP_TextInfo textInfo { get; set; }
-        public override TMP_CharacterInfo charInfo { get; set; }
-        public override Vector3[] verts { get; set; }
-        public override Vector3 orig { get; set; }
+        #region Properties.
+        public TMP_TextInfo textInfo { get; set; }
+        public TMP_CharacterInfo charInfo { get; set; }
+        public Vector3[] verts { get; set; }
+        public Vector3 orig { get; set; }
         #endregion
 
         private void Start()
@@ -24,7 +24,7 @@ namespace TextClasses
             StartCoroutine("Animate");
         }
 
-        public override IEnumerator Animate()
+        public IEnumerator Animate()
         {
             while (true)
             {
@@ -32,7 +32,7 @@ namespace TextClasses
 
                 int random = Random.Range(0, textInfo.characterCount);
 
-                charInfo = textInfo.characterInfo[tester];
+                charInfo = textInfo.characterInfo[Counter];
                 verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
 
                 for (int j = 0; j < 4; j++)
@@ -43,18 +43,18 @@ namespace TextClasses
                     ForceMeshUpdate();
                 }
 
-                if (tester >= textInfo.characterCount)
-                    tester = 0;
+                if (Counter >= textInfo.characterCount)
+                    Counter = 0;
                 else
-                    tester++;
+                    Counter++;
 
                 yield return new WaitForSeconds(1);
             }
         }
 
-        public override void AssignValues() => textInfo = text.textInfo;
+        public void AssignValues() => textInfo = text.textInfo;
 
-        public override void ForceMeshUpdate()
+        public void ForceMeshUpdate()
         {
             for (int u = 0; u < textInfo.meshInfo.Length; u++)
             {
