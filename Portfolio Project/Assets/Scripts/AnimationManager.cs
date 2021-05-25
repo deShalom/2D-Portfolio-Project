@@ -23,7 +23,7 @@ namespace PlayerClasses
             while (true)
             {
 
-                switch(a_States)
+                switch (a_States)
                 {
                     case animStates.a_Idle:
                         animator.Play(animationData.anims[0].name);
